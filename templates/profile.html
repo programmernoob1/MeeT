@@ -1,0 +1,48 @@
+{% extends 'basic.html' %}
+{% block content %}
+    {% include 'header.html' %}
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 col-xs-8">
+        {% if profile.picture %}
+                <img src="{{ profile.picture.url }}" class="img-responsive"/>
+        {% else %}
+        <img class="img-responsive center-block" src="https://twibbon.com/content/images/system/default-image.jpg"/>
+        {% endif %}
+        </div>
+        <div class="col-md-offset-6 col-md-3 col-xs-4">
+            <form action="/profile/edit"  enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input value="submit" type="submit">
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-xs-4">
+            <h4 class="text-center">Username:</h4>
+        </div>
+        <div class="col-md-3 col-xs-4">
+            <h4 class="text-center">{{ profile.user.username }}</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-xs-4">
+            <h4 class="text-center">Email:</h4>
+        </div>
+        <div class="col-md-3 col-xs-4">
+            <h4 class="text-center">{{ profile.user.email }}</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-9 col-md-3 col-xs-offset-10 col-xs-2" >
+            <a href="/profile/edit" style="overflow:hidden"><button class="btn btn-register" >Deactivate</button></a>
+        </div>
+    </div>
+
+    </div>
+{% endblock %}
+{% load staticfiles %}
+{% block head_content %}
+<link href="{% static 'css/header.css' %}" rel="stylesheet">
+{% endblock %}
