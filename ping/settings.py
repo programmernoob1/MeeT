@@ -12,9 +12,9 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 from neomodel import config
-# config.DATABASE_URL = 'bolt://neo4j:root@localhost:7687'
-# from neomodel import db
-# db.set_connection('bolt://neo4j:root@localhost:7687')
+config.DATABASE_URL = 'bolt://neo4j:root@localhost:7687'
+from neomodel import db
+db.set_connection('bolt://neo4j:root@localhost:7687')
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -130,6 +130,6 @@ STATICFILES_DIRS = [
     '/var/www/static/',
 ]
 
-STATIC_ROOT=os.path.join(BASE_DIR,"static")
+# STATIC_ROOT=os.path.join(BASE_DIR,"static")
 MEDIA_URL = '/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,"media")
