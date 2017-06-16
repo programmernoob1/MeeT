@@ -28,7 +28,7 @@ SECRET_KEY = 'hg#0(8b&%vku#(4%^)w04=b2vfvzx-yh&gi)!60fcbt8zps3f='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.108','localhost','49.207.176.233']
+ALLOWED_HOSTS = ['192.168.0.108','localhost','49.207.176.233','damp-garden-68977.herokuapp.com']
 
 
 # Application definition
