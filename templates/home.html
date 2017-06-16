@@ -16,15 +16,15 @@
 						{{ user.get_profile }}
 					</div>
 					<div class="profile-usertitle-job">
-						Developer
+						{{ user.get_profile.nickname }}
 					</div>
 				</div>
 				<!-- END SIDEBAR USER TITLE -->
 				<!-- SIDEBAR BUTTONS -->
-				<div class="profile-userbuttons">
-					<button type="button" class="btn btn-success btn-sm">Follow</button>
-					<button type="button" class="btn btn-danger btn-sm">Message</button>
-				</div>
+{#				<div class="profile-userbuttons">#}
+{#					<button type="button" class="btn btn-success btn-sm">Follow</button>#}
+{#					<button type="button" class="btn btn-danger btn-sm">Message</button>#}
+{#				</div>#}
 				<!-- END SIDEBAR BUTTONS -->
 				<!-- SIDEBAR MENU -->
 				<div class="profile-usermenu">
@@ -35,7 +35,7 @@
 							Overview </a>
 						</li>
 						<li>
-							<a href="#">
+							<a href="/profile/">
 							<i class="glyphicon glyphicon-user"></i>
 							Account Settings </a>
 						</li>

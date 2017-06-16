@@ -11,6 +11,8 @@ def index(request):
         return HttpResponseRedirect('/home/')
     if request.session.get('login_failed')==True:
         context['login']=True
+    if request.session.get('reg_failed')==True:
+        context['reg']=True
     user_form=UserForm()
     context['form']=user_form
     return render(request,'login.html',context)
@@ -19,6 +21,7 @@ def alogin(request):
     password=request.POST['password']
     user=authenticate(username=username,password=password)
     if user:
+        request.session['reg_failed']=False
         request.session['login_failed']=False
         login(request,user)
         return HttpResponseRedirect('/home/')
@@ -37,12 +40,12 @@ def register(request):
         newuser=UserNode(uid=userprofile.id)
         newuser.save()
         user = authenticate(username=username, password=password)
-        request.session['login_failed'] = False
+        request.session['reg_failed'] = False
         login(request, user)
         return HttpResponseRedirect('/home/')
     else:
-        html='<h1>WRONG FORMAT</h1>'
-        return HttpResponse(html)
+        request.session['reg_failed'] = True
+        return HttpResponseRedirect('/auth/')
 def alogout(request):
     logout(request)
     return HttpResponseRedirect('/auth/')

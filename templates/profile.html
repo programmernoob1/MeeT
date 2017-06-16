@@ -13,7 +13,7 @@
         <div class="col-md-offset-6 col-md-3 col-xs-4">
             <form action="/profile/edit"  enctype="multipart/form-data" method="post">
                 {% csrf_token %}
-                {{ form }}
+                {{ form.as_p }}
                 <input value="submit" type="submit">
             </form>
         </div>

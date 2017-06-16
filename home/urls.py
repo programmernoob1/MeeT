@@ -6,5 +6,5 @@ urlpatterns = [
     url(r'^sendreq$', views.sendreq),
     url(r'^friends$', views.friends),
     url(r'^accreq$', views.accreq),
-
+    url(r'^canreq$', views.canreq),
 ]

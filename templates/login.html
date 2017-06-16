@@ -2,7 +2,10 @@
 {% load static %}
 {% block content %}
     {% if login %}
-    <p>FAILED</p>
+    <p>Enter valid username and Password</p>
+    {% endif %}
+    {% if reg %}
+    <p>Enter valid username(unique) and password-8 chars long</p>
     {% endif %}
     <div class="container">
         <div class="row">

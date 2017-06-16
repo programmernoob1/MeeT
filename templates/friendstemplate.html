@@ -1,0 +1,18 @@
+    <h1>YOUR FRIENDS</h1>
+    {% for friend in friends %}
+        <h5>{{ friend.get_profile }}</h5>
+    {% endfor %}
+    <h1>Requests</h1>
+    {% for friend in requests %}
+        <h5>{{ friend.get_profile }}</h5>
+        <button class="accbtn" data-id="{{ friend.get_profile.id }}">Accept request</button>
+    {% endfor %}
+    <h1>Send requests</h1>
+    {% for friend in send %}
+        <h5>{{ friend.user }}</h5>
+        {% if friend.sent == 0 %}
+        <button class="reqbtn" data-id="{{ friend.user.id }}">Send request</button>
+        {%  else %}
+        <button class="canbtn" data-id="{{ friend.user.id }}">Cancel request</button>
+        {% endif %}
+    {% endfor %}
