@@ -1,1 +1,1 @@
-web: gunicorn ping.wgsi
+web: PYTHONPATH=`pwd`/.. gunicorn  ping.wsgi:application
