@@ -23,6 +23,6 @@ urlpatterns = [
     url(r'^auth/',include('authentication.urls')),
     url(r'^home/',include('home.urls')),
     url(r'^profile/',include('userprofile.urls')),
-    url(r'^$',views.alogin),	
+    url(r'^$',views.index),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
