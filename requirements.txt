@@ -1,4 +1,5 @@
 Django==1.11.2
+gunicorn==19.7.1
 neo4j-driver==1.2.1
 neomodel==3.2.5
 olefile==0.44
