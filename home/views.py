@@ -51,7 +51,8 @@ def sendreq(request):
         if not user.requestsfrom.is_connected(enduser):
             user.requeststo.connect(enduser)
         else:
-            return HttpResponse('Request recieved')
+            user.friends.connect(enduser)
+            user.requestsfrom.disconnect(enduser)
         user.save()
     return HttpResponse(reqrender(request))
 def accreq(request):
@@ -60,9 +61,12 @@ def accreq(request):
         id=request.GET['id']
     if id:
         enduser=UserNode.nodes.get(uid=id)
-        user.friends.connect(enduser)
-        user.requestsfrom.disconnect(enduser)
-        user.save()
+        if user.friends.is_connected(enduser):
+            pass
+        else:
+            user.friends.connect(enduser)
+            user.requestsfrom.disconnect(enduser)
+            user.save()
     return HttpResponse(reqrender(request))
 def canreq(request):
     user = UserNode.nodes.get(uid=UserProfile.objects.get(user=request.user).id)
